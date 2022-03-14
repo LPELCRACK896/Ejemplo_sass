@@ -1,0 +1,275 @@
+@charset "UTF-8";
+#top-bar {
+  background: mediumpurple; }
+  #top-bar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+    #top-bar ul li {
+      display: inline-block;
+      margin: 5px; }
+  #top-bar a {
+    color: #fff;
+    font-size: 20px; }
+    #top-bar a:hover {
+      color: #F5B041; }
+  #top-bar #header {
+    background: #F5B041;
+    color: #fff;
+    height: 100px;
+    font-family: verdana;
+    border-bottom: 1px solid black; }
+    #top-bar #header h1 {
+      padding: 30px 0 0 20px;
+      margin: 0; }
+  #top-bar #menu {
+    background: #1089b9;
+    border-bottom: 1px solid black; }
+    #top-bar #menu ul {
+      margin: 0;
+      padding: 0; }
+    #top-bar #menu li {
+      display: inline-block; }
+      #top-bar #menu li a {
+        color: #fff;
+        display: block;
+        padding: 10px 13px;
+        text-decoration: none; }
+      #top-bar #menu li:hover {
+        background-color: #F5B041; }
+
+#content {
+  width: 795px;
+  min-height: 500px;
+  padding: 15px;
+  float: left;
+  box-sizing: border-box;
+  position: relative; }
+  #content h2 {
+    font-family: verdana; }
+  #content::selection {
+    background: #F5B041;
+    color: #fff; }
+
+#sidebar {
+  background: #e1a82a;
+  width: 200px;
+  min-width: 500px;
+  float: right;
+  border-left: 1px solid black; }
+  #sidebar a {
+    text-decoration: none;
+    color: black; }
+    #sidebar a:hover {
+      color: #F5B041; }
+
+#footer {
+  background: #F5B041;
+  color: #fff;
+  padding: 5px 10px;
+  text-align: right;
+  font-size: 14px;
+  clear: both;
+  border-top: 1px solid black; }
+
+@media screen and (max-width: 1210px) {
+  #wrapper {
+    width: 800px; }
+  #content {
+    width: 80%; }
+  #sidebar {
+    width: 18%; } }
+
+@media screen and (max-width: 800px) {
+  #wrapper {
+    width: 500px; }
+  #content {
+    width: 65%; }
+  #sidebar {
+    width: 34%; } }
+
+@media screen and (max-width: 510px) {
+  #wrapper {
+    width: auto; }
+  #content {
+    width: 100%;
+    float: none; }
+  #sidebar {
+    width: 100%;
+    float: none; }
+  #header h1 {
+    padding: 30px 0 0 0;
+    text-align: center; } }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  font: 18px/24px verdana;
+  background: slategray; }
+
+#wrapper {
+  border: 1px solid black;
+  width: 1000px;
+  background: white;
+  margin: 0 auto; }
+
+/* Mixin
+Los mixins son como funciones ,  para tener clases con parametros repetido pero distintos valores
+No se compilan como tal al css, solo se aplican y se compila el resultado al css. 
+
+Nota: un misin puede devolver propiedades o una clase como tal, si sucede el segundo caso, se generara una clase
+asi que lo normal seria utilizarlo afuera de una clase, a menos que se quiera generar una clase hija. 
+ */
+/*Creating Mixin
+ Creacion del mixin como tal
+ */
+/*Using mixin
+Uso del mixin dentro de una clase
+*/
+.class1 {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px; }
+
+/* Extend
+ 
+ uso de extend
+ 
+ Se trasladan las propiedades de la clase 1 no definidas en la clase 2 
+
+ Nota: también funciona con id, no solo con clases
+
+ @extend .clase_que_queremos_de_base / #id_que_queremos_de_base ; 
+ */
+.clase1, .clase2 {
+  color: red;
+  /*esta no se va a pasar a la otra clase porque se define; pero depende de a donde se extienda */
+  font-size: 10px;
+  padding: 15px;
+  line-height: 5px; }
+
+.clase2 {
+  color: orange;
+  /*Esto sobreecribe el color*/ }
+
+/* Extend Alternativo
+Alternativamente, podemos usar el extend con "place-holders"
+El place holder en este caso es first (que tiene que ser precedido del símbolo % para que 
+se identifique como place holder), esta ser la clase base de las cuales se extiendan otras, sin embargo, 
+esta no puede usarse como clase o ID dentro del css. Es decir, al compilar el sass no se ira esta clase como tal
+solo es utilizada como base para otras. 
+
+Como pueden ver en el css, ni siquiera se ve niguna evidencia de %first, aunque en el sass si. 
+*/
+#second, #third {
+  background: gray;
+  width: 300px;
+  padding: 15px;
+  border-radius: 10px;
+  font-family: arial;
+  font-size: 20px; }
+
+#second {
+  /*nota
+  A pesar del cambio en la clase base, se siguen sobreescribiendo
+  las propiedades que tenga definida las "clases hijas"; no se si es 
+  el termino mas arpopiado
+  */
+  background: orange;
+  width: 400px; }
+
+#third {
+  background: red;
+  width: 600px; }
+
+/* Operadores: 
+
+
+  De igualdad
+    Ejemplos: 
+      Igual: ==
+      No igual: !=
+    Return: 
+      True/False
+  De Relacion: 
+    Ejemplos:
+      Menor que: <
+      Mayor que: >
+      Menor o igual que: <=
+      Mayor o igual que: >=
+    Return:
+      True/False
+  Boolean:
+    ejemplos: 
+      and
+      or
+      not    
+    return:
+      True/False
+  String:
+    + Concatenar
+    
+  Numeric:
+    Son:
+      + suma 
+      - substraccion
+      * producto
+      / division
+      % modulo
+*/
+/*Interpolation
+Sirve para concatennar palabras a propiedades o 
+*/
+.clasex {
+  margin-right: 10px; }
+
+.img-logo1 {
+  padding: 0; }
+
+/*Interpolation ejemplo util con propiedades
+*/
+.clase_ejemplo {
+  margin-left: 20px; }
+
+/*Interpolation ejemplo con clases
+*/
+.image-cloud {
+  background-image: url("../media/cloud.png"); }
+
+/* Function
+pues yo crei que el mixin era una funcion pero no exactamente
+Syntaxis:
+@funcion function-name($parameter){
+  @return ($parameter/3) + px;
+}
+
+Pues esto si es un funcion 
+**/
+.one-third-width {
+  width: 500px; }
+
+/*SASS number functions
+  -abs() -> abs(-14px) =  14px
+  -ceil() -> ceil(5.3) = 6; redondea hacia arriba los decimales
+  -floor() -> floor(4.7) = 4; como funcion parte entera 
+  -round() -> round(4.9) = 5; round(4.2) = 4, redondea al entero mas cercano, en .5 redondea hacia arriba 
+  -max() -> max(1px, 3px, 5px) = 5px; no se si admite 2 parametros
+  -min() -> min(1px, 3px, 5px) = 1px; no se si admite 2 parametros
+  -comparable() ->  comparable(2cm, 4mm) = true; comparable(2px, 4em) = false
+  -percentage() -> percentage(200px/50px) = 400%; percentage(0.2) = 20% 
+  -random() -> random() = numero random del 0 a 1; random(12) = numero entero random del 0 a 12; 
+  -unit() -> unit(22px) = "px"
+  -unitless() -> unitless(20cm) = false; verifica si tiene unidades 
+*/
+/* SASS string functions
+  quote() -> quote(Arial) = "Arial" 
+  str-index() -> str-index("lorems dsjaod dummy", "lorems") = 1  
+  str-insert() -> str-insert("lorem dsjaod dummy", "hola ", 1) = "hola lorems dsjaod dummy"
+  str-length() -> str-length(Arial) = 5
+  str-slice() -> str-slice("lorem dsjaod dummy", 6) =  " dsjaod dummy"; str-slice("lorem dsjaod dummy", 6, 9) =  " dsj" 
+  to-upper-case() -> to-upper-case("Arial") = ARIAL
+  to-lower-case() -> to-lower-case("Arial") = arial
+  unique-id() -> unique-id() = dsahdisja12; devuelve un id unico, se utiliza para el if
+  unquote() -> unquote("Arial") = Arial
+*/

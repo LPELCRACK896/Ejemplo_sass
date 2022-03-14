@@ -1,0 +1,14 @@
+#sidebar{
+    background: #e1a82a;
+    width: 200px;
+    min-width: 500px;
+    float: right;
+    border-left: 1px solid black;
+    a{
+        text-decoration: none;
+        color: black;
+        &:hover{
+            color: $main-color;
+        }
+    }
+}

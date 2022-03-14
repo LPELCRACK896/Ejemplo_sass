@@ -1,21 +1,21 @@
-#Ejemplo SASS
+# Ejemplo SASS
 
-##Utilizar compilador SASS con npm 
-###Primero inicializamos el proyecto npm
+## Utilizar compilador SASS con npm 
+### Primero inicializamos el proyecto npm
 ```
 npm init
 ```
-###Instalamos el compilador
+### Instalamos el compilador
 ```
 npm i node-sass --save-dev
 ```
 
-###Modificamos el archivo _package.json_
+### Modificamos el archivo _package.json_
 Al json valor de scripts le agregamos una llave llamada _compiler:sass_ 
 
-####Originalmente viene asi: 
+#### Originalmente viene asi: 
 - scripts: {}
-####Luego de realizar cambios debe verse así
+#### Luego de realizar cambios debe verse así
 -scripts: {"compiler:sass"}
 
 No importa si hay otros scripts, solo lo añadimos al json valor. 

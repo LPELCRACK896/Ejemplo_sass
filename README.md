@@ -27,5 +27,8 @@ En este proyecto quedo así:
 "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
     ,"compiler:sass": "node-sass src/sass/main.scss src/css/main.css"
-  s
 }
+### El comando para compilar sera el siguiente
+```
+npm run compiler:sass
+```
